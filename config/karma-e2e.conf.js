@@ -1,6 +1,7 @@
 module.exports = function(config){
     config.set({
 
+    urlRoot: '__karma__',
 
     basePath : '../',
 
