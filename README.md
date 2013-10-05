@@ -6,7 +6,7 @@ Info-board for viewing persons information. Expected usage is showing employees 
 Powered by AngularJS.
 
 ## Requires
-- Node.js
+- Node.js >= 0.10.0
 
 ## Usage
 Run web server with `node ./scripts/web-server.js`.
