@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Miles Davis",
+        "imageUrl": "img/workers/Miles_Davis_by_Palumbo.jpg",
+        "description": "Miles Dewey Davis III (May 26, 1926 – September 28, 1991) was an American jazz musician, trumpeter, bandleader, and composer. Widely considered one of the most influential musicians of the 20th century, Miles Davis was, with his musical groups, at the forefront of several major developments in jazz music, including bebop, cool jazz, hard bop, modal jazz, and jazz fusion."
+    },
+    {
+        "name": "John Coltrane",
+        "imageUrl": "img/workers/John_Coltrane_1963.jpg",
+        "description": "John William Coltrane, also known as \"Trane\" (September 23, 1926 – July 17, 1967), was an American jazz saxophonist and composer. Working in the bebop and hard bop idioms early in his career, Coltrane helped pioneer the use of modes in jazz and later was at the forefront of free jazz. He organized at least fifty recording sessions as a leader during his career, and appeared as a sideman on many other albums, notably with trumpeter Miles Davis and pianist Thelonious Monk."
+    },
+    {
+        "name": "Cannonball Adderlay",
+        "imageUrl": "img/workers/Julian_and_Nat_Adderley_1966.jpg",
+        "description": "Julian Edwin \"Cannonball\" Adderley (September 15, 1928 – August 8, 1975) was a jazz alto saxophonist of the hard bop era of the 1950s and 1960s.\nAdderley is remembered for his 1966 single \"Mercy Mercy Mercy\", a crossover hit on the pop charts, and for his work with trumpeter Miles Davis, including on the epochal album Kind of Blue (1959). He was the brother of jazz cornetist Nat Adderley, a longtime member of his band."
+    },
+    {
+        "name": "Bill Evans",
+        "imageUrl": "img/workers/Bill_Evans_1969",
+        "description": "William John Evans, known as Bill Evans (/ˈɛvəns/, August 16, 1929 – September 15, 1980), was an American jazz pianist and composer who mostly worked in a trio setting. He is widely considered to be one of the greatest jazz pianists of all time, and is considered by some to have been the most influential post-World War II jazz pianist. Evans's use of impressionist harmony, inventive interpretation of traditional jazz repertoire, block chords, and trademark rhythmically independent, \"singing\" melodic lines continue to influence jazz pianists today. Unlike many other jazz musicians of his time, Evans never embraced new movements like jazz fusion or free jazz."
+    },
+    {
+        "name": "Jimmy Cobb",
+        "imageUrl": "img/workers/Jimmy_Cobb.jpg",
+        "description": "Jimmy Wilbur Cobb (born January 20, 1929 in Washington, D.C.) is an American jazz drummer.\nProbably his most famous work is on Miles Davis' Kind of Blue (1959), considered by many to be the quintessential jazz record. As of 2012, Cobb is the last surviving player from the session. He also played on other famous Davis albums, including Sketches of Spain, Someday My Prince Will Come, Miles Davis at Carnegie Hall, In Person Friday and Saturday Nights at the Blackhawk, Complete, and briefly on Porgy and Bess and Sorcerer."
+    }
+]

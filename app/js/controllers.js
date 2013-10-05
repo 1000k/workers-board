@@ -2,10 +2,10 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', [function() {
-
+angular.module('myApp.controllers', [])
+  .controller('WorkersListAllCtrl', ['$scope', 'Worker', function($scope, Worker) {
+    $scope.workers = Worker.query();
   }])
-  .controller('MyCtrl2', [function() {
-
+  .controller('WorkersDetailCtrl', ['$scope', 'Worker', function($scope, Worker) {
+    $scope.worker = Worker.query('one');
   }]);
