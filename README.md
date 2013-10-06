@@ -1,5 +1,7 @@
 # Workers Board
 
+[![Build Status](https://travis-ci.org/1000k/workers-board.png)](https://travis-ci.org/1000k/workers-board)
+
 ## What's This?
 Info-board for viewing persons information. Expected usage is showing employees in any organization.
 
