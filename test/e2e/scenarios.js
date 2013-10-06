@@ -8,9 +8,8 @@ describe('my app', function() {
     browser().navigateTo('../../app/index.html');
   });
 
-
-  it('should automatically redirect to /list-all when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/list-all");
+  it('should automatically redirect to /detail when location hash/fragment is empty', function() {
+    expect(browser().location().url()).toMatch(/detail\/\d+/);
   });
 
 
@@ -19,7 +18,6 @@ describe('my app', function() {
     beforeEach(function() {
       browser().navigateTo('#/list-all');
     });
-
 
     it('should render list-all when user navigates to /list-all', function() {
       expect(element('[ng-view] h1:first').text()).
