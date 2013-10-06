@@ -40,13 +40,12 @@ describe('controllers', function(){
         {name: 'John Coltrane', description: 'bar'}
       ]);
     });
-
   });
 
-
-  // describe('WorkersDetailCtrl', function() {
-  //   it('should ....', inject(function() {
-  //     //spec body
-  //   }));
-  // });
+  // TODO Implement
+  describe('WorkersDetailCtrl', function() {
+    it('should ....', inject(function() {
+      //spec body
+    }));
+  });
 });
