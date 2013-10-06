@@ -8,7 +8,7 @@ describe('my app', function() {
     browser().navigateTo('../../app/index.html');
   });
 
-  it('should automatically redirect to /detail when location hash/fragment is empty', function() {
+  it('should automatically redirect to /detail/\d when location hash/fragment is empty', function() {
     expect(browser().location().url()).toMatch(/detail\/\d+/);
   });
 
@@ -20,24 +20,37 @@ describe('my app', function() {
     });
 
     it('should render list-all when user navigates to /list-all', function() {
-      expect(element('[ng-view] h1:first').text()).
-        toMatch(/All Workers/);
+      expect(element('[ng-view] h1:first').text())
+        .toMatch(/All Workers/);
+    });
+
+  });
+
+
+  describe('random', function() {
+
+    beforeEach(function() {
+      browser().navigateTo('#/detail');
+    });
+
+    it('should redirect to detail worker page when user navigates to /detail', function() {
+      expect(browser().location().url()).toMatch(/detail\/\d+/);
     });
 
   });
 
 
   describe('detail', function() {
-
+    
+    // FIXME hard corded value
     beforeEach(function() {
-      browser().navigateTo('#/detail');
+      browser().navigateTo('#/detail/0');
     });
 
-    // TODO implement
-    // it('should render detail when user navigates to /detail', function() {
-    //   expect(element('[ng-view] p:first').text()).
-    //     toMatch(/partial for view 2/);
-    // });
-
+    it('should render detail page when user navigates to /detail/{id}', function() {
+      expect(element('[ng-view] h2:first').text())
+        .toBe('Miles Davis');
+    });
   });
+
 });
