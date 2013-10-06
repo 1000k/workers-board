@@ -9,37 +9,37 @@ describe('my app', function() {
   });
 
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/view1");
+  it('should automatically redirect to /list-all when location hash/fragment is empty', function() {
+    expect(browser().location().url()).toBe("/list-all");
   });
 
 
-  describe('view1', function() {
+  describe('list-all', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view1');
+      browser().navigateTo('#/list-all');
     });
 
 
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 1/);
+    it('should render list-all when user navigates to /list-all', function() {
+      expect(element('[ng-view] h1:first').text()).
+        toMatch(/All Workers/);
     });
 
   });
 
 
-  describe('view2', function() {
+  describe('detail', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view2');
+      browser().navigateTo('#/detail');
     });
 
-
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 2/);
-    });
+    // TODO implement
+    // it('should render detail when user navigates to /detail', function() {
+    //   expect(element('[ng-view] p:first').text()).
+    //     toMatch(/partial for view 2/);
+    // });
 
   });
 });
