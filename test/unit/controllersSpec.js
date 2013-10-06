@@ -32,7 +32,7 @@ describe('controllers', function(){
     }));
 
     it('should create "workers" model with 2 workers fetched from xhr', function() {
-      expect(scope.workers).toEqual([]);
+      expect(scope.workers).toBeUndefined();
       $httpBackend.flush();
 
       expect(scope.workers).toEqualData([

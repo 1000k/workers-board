@@ -3,9 +3,15 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-  .controller('WorkersListAllCtrl', ['$scope', 'Worker', function($scope, Worker) {
-    $scope.workers = Worker.query();
+  .controller('WorkersListAllCtrl', ['$scope', '$http', function($scope, $http) {
+    $http.get('workers/workers.json').success(function(data) {
+      $scope.workers = data;
+      console.log($scope.workers);
+    });
   }])
-  .controller('WorkersDetailCtrl', ['$scope', 'Worker', function($scope, Worker) {
-    $scope.worker = Worker.query('one');
+  .controller('WorkersDetailCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+    $scope.worker = $routeParams.workerId
+      ? Worker.findById($routeParams.workerId)
+      : Worker.random();
+    // $scope.worker = Worker.query('one');
   }]);
