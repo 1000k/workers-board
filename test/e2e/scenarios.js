@@ -42,7 +42,7 @@ describe('my app', function() {
 
   describe('detail', function() {
     
-    // FIXME hard corded value
+    // FIXME hard corded value (depend on workers.json)
     beforeEach(function() {
       browser().navigateTo('#/detail/0');
     });

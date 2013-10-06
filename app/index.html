@@ -11,9 +11,15 @@
     <li><a href="#/list-all">List All Workers</a></li>
   </ul>
 
-  <div ng-view></div>
+  <div class="controlPanel" ng-controller="ControlPanel">
+    <div>Angular seed app: v<span app-version></span></div>
+    <ul>
+      <li><a href="" ng-click="nextWorker()">Next</a></li>
+      <li><a href="" ng-click="previousWorker()">Previous</a></li>
+    </ul>
+  </div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+  <div ng-view></div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>

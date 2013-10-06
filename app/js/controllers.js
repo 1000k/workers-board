@@ -2,28 +2,68 @@
 
 /* Controllers */
 
+function getWorkers(http) {
+  return http.get('workers/workers.json');
+}
+
+
+function showWorker(location, id) {
+  location.path('/detail/' + id);
+}
+
+function showTopWorker(location) {
+  showWorker(location, 0);
+}
+
+function isNumber(x){ 
+    if( typeof(x) != 'number' && typeof(x) != 'string' )
+        return false;
+    else 
+        return (x == parseFloat(x) && isFinite(x));
+}
+
 angular.module('myApp.controllers', [])
-  .controller('WorkersListAllCtrl', ['$scope', '$http', function($scope, $http) {
-    $http.get('workers/workers.json').success(function(data) {
+  .controller('WorkersListAllCtrl', ['$scope', '$http', 'WorkersCache', function($scope, $http, WorkersCache) {
+    getWorkers($http).success(function(data) {
+      WorkersCache.put('workers', data);
       $scope.workers = data;
     });
   }])
-  // .controller('WorkersRandomCtrl', ['$location', '$http', function($location, $http) {
-  //   $http.get('workers/workers.json').success(function(data) {
-  //       var idx = Math.floor(Math.random() * data.length);
-  //       $location.path('/detail/' + idx);
-  //     });
-  // }])
-  .controller('WorkersDetailCtrl', ['$scope', '$routeParams', '$http', '$location', function($scope, $routeParams, $http, $location) {
+  .controller('WorkersDetailCtrl', ['$scope', '$routeParams', '$http', '$location', 'WorkersCache', function($scope, $routeParams, $http, $location, WorkersCache) {
     if ($routeParams.workerId) {
       var workerId = $routeParams.workerId;
-      $http.get('workers/workers.json').success(function(data) {
+      getWorkers($http).success(function(data) {
+        WorkersCache.put('workers', data);
+
         $scope.worker = data[workerId];
       });
     } else {
-      $http.get('workers/workers.json').success(function(data) {
+      getWorkers($http).success(function(data) {
+        WorkersCache.put('workers', data);
+
         var idx = Math.floor(Math.random() * data.length);
-        $location.path('/detail/' + idx);
+        showWorker(location, idx);
       });
+    }
+  }])
+  .controller('ControlPanel', ['$scope', '$routeParams', '$location', 'WorkersCache', function($scope, $routeParams, $location, WorkersCache) {
+    
+    $scope.nextWorker = function() {
+      if (!isNumber($routeParams.workerId)) {
+        showTopWorker($location);
+      } else {
+        var currentId = parseInt($routeParams.workerId),
+            workers = WorkersCache.get('workers');
+
+        if ((currentId + 1) >= workers.length) {
+          showTopWorker($location);
+        } else {
+          showWorker($location, currentId + 1);
+        }
+      }
+    }
+
+    $scope.previousWorker = function() {
+      console.log('previous');
     }
   }]);
