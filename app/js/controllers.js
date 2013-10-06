@@ -64,6 +64,18 @@ angular.module('myApp.controllers', [])
     }
 
     $scope.previousWorker = function() {
-      console.log('previous');
+      if (!isNumber($routeParams.workerId)) {
+        showTopWorker($location);
+      } else {
+        var currentId = parseInt($routeParams.workerId),
+            workers = WorkersCache.get('workers'),
+            maxId = workers.length - 1;
+
+        if ((currentId - 1) < 0) {
+          showWorker($location, maxId);
+        } else {
+          showWorker($location, currentId - 1);
+        }
+      }
     }
   }]);
