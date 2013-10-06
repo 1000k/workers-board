@@ -8,7 +8,13 @@ angular.module('myApp.controllers', [])
       $scope.workers = data;
     });
   }])
-  .controller('WorkersDetailCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+  // .controller('WorkersRandomCtrl', ['$location', '$http', function($location, $http) {
+  //   $http.get('workers/workers.json').success(function(data) {
+  //       var idx = Math.floor(Math.random() * data.length);
+  //       $location.path('/detail/' + idx);
+  //     });
+  // }])
+  .controller('WorkersDetailCtrl', ['$scope', '$routeParams', '$http', '$location', function($scope, $routeParams, $http, $location) {
     if ($routeParams.workerId) {
       var workerId = $routeParams.workerId;
       $http.get('workers/workers.json').success(function(data) {
@@ -17,7 +23,7 @@ angular.module('myApp.controllers', [])
     } else {
       $http.get('workers/workers.json').success(function(data) {
         var idx = Math.floor(Math.random() * data.length);
-        $scope.worker = data[idx];
+        $location.path('/detail/' + idx);
       });
     }
   }]);
