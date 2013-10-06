@@ -42,7 +42,7 @@ angular.module('myApp.controllers', [])
         WorkersCache.put('workers', data);
 
         var idx = Math.floor(Math.random() * data.length);
-        showWorker(location, idx);
+        showWorker($location, idx);
       });
     }
   }])
