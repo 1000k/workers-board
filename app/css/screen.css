@@ -1,0 +1,160 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../usr/lib64/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../usr/lib64/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../usr/lib64/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../usr/lib64/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../usr/lib64/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../usr/lib64/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../usr/lib64/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../usr/lib64/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../usr/lib64/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 10, ../../src/sass/screen.scss */
+html, body {
+  height: 100%;
+  color: #fff;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+/* line 16, ../../src/sass/screen.scss */
+#container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  -webkit-box-direction: reverse;
+  -moz-box-direction: reverse;
+  -ms-box-direction: reverse;
+  box-direction: reverse;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+/* line 61, ../../../usr/lib64/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+#container * html {
+  font-size: 100%;
+}
+/* line 64, ../../../usr/lib64/ruby/gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+#container html {
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+/* line 31, ../../src/sass/screen.scss */
+.details {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  padding: 20px;
+  background-color: #3fbcbe;
+}
+
+/* line 37, ../../src/sass/screen.scss */
+.worker-photo {
+  overflow: hidden;
+  width: 38%;
+}
+
+/* line 42, ../../src/sass/screen.scss */
+.worker-name {
+  font-size: 4rem;
+  margin-bottom: 0.75em;
+}
+
+/* line 47, ../../src/sass/screen.scss */
+.worker-description {
+  font-size: 2rem;
+}
+/* line 50, ../../src/sass/screen.scss */
+.worker-description p {
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+
+/* line 56, ../../src/sass/screen.scss */
+.full-image {
+  display: box;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 64, ../../src/sass/screen.scss */
+#debug-panel {
+  position: fixed;
+  background: #ccc;
+  top: 0;
+  right: 0;
+  width: 400px;
+  z-index: 100;
+}
