@@ -3,24 +3,26 @@
 <head>
   <meta charset="utf-8">
   <title>Workers Board</title>
-  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/screen.css"/>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/detail">Random</a></li>
-    <li><a href="#/list-all">List All Workers</a></li>
-  </ul>
-
-  <div class="controlPanel" ng-controller="ControlPanel">
-    <div>Angular seed app: v<span app-version></span></div>
-    
-    <ul>
-      <li><a href="" ng-click="nextWorker()" class="nextWorker">Next</a></li>
-      <li><a href="" ng-click="previousWorker()" class="previousWorker">Previous</a></li>
+   <div class="debug-panel">
+    <ul class="menu">
+      <li><a href="#/detail">Random</a></li>
+      <li><a href="#/list-all">List All Workers</a></li>
     </ul>
+
+    <div class="controlPanel" ng-controller="ControlPanel">
+      <div>Angular seed app: v<span app-version></span></div>
+      
+      <ul>
+        <li><a href="" ng-click="nextWorker()" class="nextWorker">Next</a></li>
+        <li><a href="" ng-click="previousWorker()" class="previousWorker">Previous</a></li>
+      </ul>
+    </div>
   </div>
 
-  <div ng-view></div>
+  <div ng-view class="page-wrapper"></div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>

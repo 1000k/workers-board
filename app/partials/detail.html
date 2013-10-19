@@ -1,3 +1,7 @@
-<h2>{{worker.name}}</h2>
-<p>{{worker.description}}</p>
-<p><img ng-src="{{worker.imageUrl}}"></p>
+<section class="descriptions">
+  <h2 class="worker-name">{{worker.name}}</h2>
+  <p class="worker-description">{{worker.description}}</p>
+</section>
+
+<section class="worker-image" ng-style="{'background-image': 'url(' + worker.imageUrl + ')'}">
+</section>

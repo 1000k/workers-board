@@ -28,12 +28,16 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      options: {
+        spawn: false
+      },
       css: {
         files: ['src/sass/*.scss'],
         tasks: ['compass', 'cssmin']
       }
     }
   });
+
   grunt.loadNpmTasks('grunt-contrib');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
