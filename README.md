@@ -1,19 +1,48 @@
-# Workers Board
+Workers Board
+=============
 
 [![Build Status](https://travis-ci.org/1000k/workers-board.png)](https://travis-ci.org/1000k/workers-board)
 
-## What's This?
+
+What's This?
+------------
 Info-board for viewing persons information. Expected usage is showing employees in any organization.
 
 Powered by AngularJS.
 
-## Requires
+
+Requires
+--------
 - Node.js >= 0.10.0
 
-## Usage
+
+Usage
+-----
 Run web server with `node ./scripts/web-server.js`.
 
 Then access to `http://localhost:8000/app/index.html`.
 
-## Author
+
+Development Information
+-----------------------
+### Installing development tools
+1. `cd {workers board directory}`
+1. Type `sudo npm install`
+
+NOTE: some npm packages have too long name not to create path on Windows -- `npm ERR! code: 'EPERM'` means this error.
+
+### Testing
+First of all, run web server.
+
+Then:
+
+- Run unit test: `./scripts/test.sh`
+- Run scenerio test: `./scripts/e2e-test.sh`
+
+### Modifying Stylesheets with SCSS
+
+
+
+Author
+------
 SENDA Keijiro <senda.keijiro@gmail.com>
