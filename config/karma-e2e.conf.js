@@ -1,7 +1,6 @@
 module.exports = function(config){
     config.set({
 
-    urlRoot: '__karma__',
 
     basePath : '../',
 
@@ -26,7 +25,7 @@ module.exports = function(config){
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-jasmine',
-            'karma-ng-scenario'    
+            'karma-ng-scenario'
             ],
 
     junitReporter : {

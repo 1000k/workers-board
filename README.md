@@ -39,8 +39,10 @@ Then:
 - Run unit test: `./scripts/test.sh`
 - Run scenerio test: `./scripts/e2e-test.sh`
 
-### Modifying Stylesheets with SCSS
-
+### Modifying Stylesheet
+1. Install Compass and Sass with `gem update --system && gem install compass`.
+1. `grunt watch`
+1. Modified `resources/sass/screen.scss` then run compile tasks. Output is put in `app/css`.
 
 
 Author
