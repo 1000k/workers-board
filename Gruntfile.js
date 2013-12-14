@@ -1,11 +1,12 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    // Note: gem sass 3.2.11 & 3.2.12 is broken so you should use SASS 3.2.10 with `sudo gem install sass -v 3.2.10`
+    // Note: gem sass 3.2.11 & 3.2.12 is broken so you should use
+    // SASS 3.2.10 with `sudo gem install sass -v 3.2.10`
     compass: {
       dist: {
         options: {
-          sassDir: 'src/sass',
+          sassDir: 'resources/sass',
           cssDir: 'app/css'
         }
       }
@@ -32,7 +33,7 @@ module.exports = function(grunt) {
         spawn: false
       },
       css: {
-        files: ['src/sass/*.scss'],
+        files: ['resources/sass/*.scss'],
         tasks: ['compass', 'cssmin']
       }
     }
