@@ -27,7 +27,6 @@ angular.module('myApp.controllers', [])
   }])
   .controller('ControlPanel', ['$scope', '$routeParams', '$interval', 'WorkersCache', 'locator', function($scope, $routeParams, $interval, WorkersCache, locator) {
     this.timerSec = 2;
-    this.timer_ = null;
     this.promise_ = null;
 
     this.timerStart = function() {
