@@ -133,7 +133,7 @@ html, body {
 }
 
 /* line 67, ../../resources/sass/screen.scss */
-.debug-panel {
+.controlPanel {
   position: fixed;
   background: #ccc;
   top: 0;

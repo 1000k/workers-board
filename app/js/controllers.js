@@ -19,59 +19,74 @@ function isNumber(x) {
   else return (x == parseFloat(x) && isFinite(x));
 }
 
-angular.module('myApp.controllers', []).controller('WorkersListAllCtrl', ['$scope', '$http', 'WorkersCache', function($scope, $http, WorkersCache) {
-  getWorkers($http).success(function(data) {
-    WorkersCache.put('workers', data);
-    $scope.workers = data;
-  });
-}])
-.controller('WorkersDetailCtrl', ['$scope', '$routeParams', '$http', '$location', 'WorkersCache', function($scope, $routeParams, $http, $location, WorkersCache) {
-  if ($routeParams.workerId) {
-    var workerId = $routeParams.workerId;
+angular.module('myApp.controllers', [])
+  .controller('WorkersListAllCtrl', ['$scope', '$http', 'WorkersCache', function($scope, $http, WorkersCache) {
     getWorkers($http).success(function(data) {
       WorkersCache.put('workers', data);
-
-      $scope.worker = data[workerId];
+      $scope.workers = data;
     });
-  } else {
-    getWorkers($http).success(function(data) {
-      WorkersCache.put('workers', data);
-
-      var idx = Math.floor(Math.random() * data.length);
-      showWorker($location, idx);
-    });
-  }
-}])
-.controller('ControlPanel', ['$scope', '$routeParams', '$location', 'WorkersCache', function($scope, $routeParams, $location, WorkersCache) {
-
-  $scope.nextWorker = function() {
-    if (!isNumber($routeParams.workerId)) {
-      showTopWorker($location);
+  }])
+  .controller('WorkersDetailCtrl', ['$scope', '$routeParams', '$http', '$location', 'WorkersCache', function($scope, $routeParams, $http, $location, WorkersCache) {
+    if ($routeParams.workerId) {
+      var workerId = $routeParams.workerId;
+      getWorkers($http).success(function(data) {
+        WorkersCache.put('workers', data);
+        $scope.worker = data[workerId];
+      });
     } else {
-      var currentId = parseInt($routeParams.workerId),
-        workers = WorkersCache.get('workers');
+      getWorkers($http).success(function(data) {
+        WorkersCache.put('workers', data);
 
-      if ((currentId + 1) >= workers.length) {
+        var idx = Math.floor(Math.random() * data.length);
+        showWorker($location, idx);
+      });
+    }
+  }])
+  .controller('ControlPanel', ['$scope', '$routeParams', '$location', 'WorkersCache', function($scope, $routeParams, $location, WorkersCache) {
+    this.timerSec = 2;
+    this.timer_ = null;
+    this.isTimerRunning_ = false;
+
+    this.timerStart = function() {
+      console.log('Begin timer.');
+      var msec = this.timerSec * 1000;
+      this.timer_ = setInterval(function() {console.log('next');}, msec);
+      this.isTimerRunning_ = true;
+    }
+
+    this.timerStop = function() {
+      clearInterval(this.timer_)
+      this.isTimerRunning_ = false;
+    }
+
+    $scope.nextWorker = function() {
+      if (!isNumber($routeParams.workerId)) {
         showTopWorker($location);
       } else {
-        showWorker($location, currentId + 1);
+        var currentId = parseInt($routeParams.workerId),
+          workers = WorkersCache.get('workers');
+
+        if ((currentId + 1) >= workers.length) {
+          showTopWorker($location);
+        } else {
+          showWorker($location, currentId + 1);
+        }
       }
     }
-  }
 
-  $scope.previousWorker = function() {
-    if (!isNumber($routeParams.workerId)) {
-      showTopWorker($location);
-    } else {
-      var currentId = parseInt($routeParams.workerId),
-        workers = WorkersCache.get('workers'),
-        maxId = workers.length - 1;
-
-      if ((currentId - 1) < 0) {
-        showWorker($location, maxId);
+    $scope.previousWorker = function() {
+      if (!isNumber($routeParams.workerId)) {
+        showTopWorker($location);
       } else {
-        showWorker($location, currentId - 1);
+        var currentId = parseInt($routeParams.workerId),
+          workers = WorkersCache.get('workers'),
+          maxId = workers.length - 1;
+
+        if ((currentId - 1) < 0) {
+          showWorker($location, maxId);
+        } else {
+          showWorker($location, currentId - 1);
+        }
       }
     }
-  }
-}]);
+  }]);

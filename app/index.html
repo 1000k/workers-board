@@ -6,20 +6,24 @@
   <link rel="stylesheet" href="css/screen.css"/>
 </head>
 <body>
-   <div class="debug-panel">
+  <div class="controlPanel" ng-controller="ControlPanel as cp">
     <ul class="menu">
       <li><a href="#/detail">Random</a></li>
       <li><a href="#/list-all">List All Workers</a></li>
     </ul>
 
-    <div class="controlPanel" ng-controller="ControlPanel">
-      <div>Angular seed app: v<span app-version></span></div>
-      
-      <ul>
-        <li><a href="" ng-click="nextWorker()" class="nextWorker">Next</a></li>
-        <li><a href="" ng-click="previousWorker()" class="previousWorker">Previous</a></li>
-      </ul>
-    </div>
+    <div>Angular seed app: v<span app-version></span></div>
+    
+    <ul>
+      <li><a href="" ng-click="nextWorker()" class="nextWorker">Next</a></li>
+      <li><a href="" ng-click="previousWorker()" class="previousWorker">Previous</a></li>
+    </ul>
+
+    <fieldset>
+      <label for="timerSec">Timer (sec): </label><input type="number" ng-model="cp.timerSec" required>
+      <button ng-click="cp.timerStart()">start</button>
+      <button ng-click="cp.timerStop()">stop</button>
+    </fieldset>
   </div>
 
   <div ng-view class="page-wrapper"></div>
