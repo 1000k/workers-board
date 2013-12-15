@@ -69,14 +69,14 @@ describe('my app', function() {
 
     it('should render previous page when user click "previous" link', function() {
       browser().navigateTo('#/detail/1');
-      element('.previousWorker').click();
+      element('.prevWorker').click();
       
       expect(browser().location().url()).toBe('/detail/0');
     });
 
     it('should render the last worker page when user click "previous" link on the first worker', function() {
       browser().navigateTo('#/detail/0');
-      element('.previousWorker').click();
+      element('.prevWorker').click();
       
       // FIXME hard corded value (depend on workers.json)
       expect(browser().location().url()).toBe('/detail/4');

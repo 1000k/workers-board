@@ -2,102 +2,79 @@
 
 /* Controllers */
 
-function getWorkers($http) {
-  return $http.get('workers/workers.json');
-}
-
-function showWorker($location, id) {
-  $location.path('/detail/' + id);
-}
-
-function showTopWorker($location) {
-  showWorker($location, 0);
-}
-
-function isNumber(x) {
-  if (typeof(x) != 'number' && typeof(x) != 'string') return false;
-  else return (x == parseFloat(x) && isFinite(x));
-}
+// function isNumber(x) {
+//   if (typeof(x) != 'number' && typeof(x) != 'string') return false;
+//   else return (x == parseFloat(x) && isFinite(x));
+// }
 
 angular.module('myApp.controllers', [])
-  .controller('WorkersListAllCtrl', ['$scope', '$http', 'WorkersCache', function($scope, $http, WorkersCache) {
-    getWorkers($http).success(function(data) {
+  .controller('WorkersListAllCtrl', ['$scope', '$http', 'locator', 'WorkersCache', function($scope, $http, locator, WorkersCache) {
+    locator.getWorkers().success(function(data) {
       WorkersCache.put('workers', data);
       $scope.workers = data;
     });
   }])
-  .controller('WorkersDetailCtrl', ['$scope', '$routeParams', '$http', '$location', 'WorkersCache', function($scope, $routeParams, $http, $location, WorkersCache) {
+  .controller('WorkersDetailCtrl', ['$scope', '$routeParams', '$http', 'locator', 'WorkersCache', function($scope, $routeParams, $http, locator, WorkersCache) {
     if ($routeParams.workerId) {
       var workerId = $routeParams.workerId;
-      getWorkers($http).success(function(data) {
+      locator.getWorkers().success(function(data) {
         WorkersCache.put('workers', data);
         $scope.worker = data[workerId];
       });
     } else {
-      getWorkers($http).success(function(data) {
+      locator.getWorkers().success(function(data) {
         WorkersCache.put('workers', data);
 
-        var idx = Math.floor(Math.random() * data.length);
-        showWorker($location, idx);
+        var id = Math.floor(Math.random() * data.length);
+        locator.showWorker(id);
       });
     }
   }])
-  .controller('ControlPanel', ['$scope', '$routeParams', '$location', 'WorkersCache', function($scope, $routeParams, $location, WorkersCache) {
+  .controller('ControlPanel', ['$scope', '$routeParams', '$interval', 'WorkersCache', 'locator', function($scope, $routeParams, $interval, WorkersCache, locator) {
     this.timerSec = 2;
     this.timer_ = null;
-    this.isTimerRunning_ = false;
+    this.promise_ = null;
 
     this.timerStart = function() {
-      console.log('Begin timer.');
       var msec = this.timerSec * 1000;
-      this.timer_ = setInterval(function() {console.log('next');}, msec);
-      this.isTimerRunning_ = true;
+      this.promise_ = $interval(function() { locator.randomWorker(); }, msec);
     }
 
     this.timerStop = function() {
-      clearInterval(this.timer_)
-      this.isTimerRunning_ = false;
+      $interval.cancel(this.promise_);
     }
 
-    this.randomWorker = function() {
-      var workers = WorkersCache.get('workers'),
-        maxId = workers.length - 1,
-        id = Math.floor(Math.random() * maxId);
-
-      this.showWorker(id);
-    }
-
-    this.showWorker = function(id) {
-      $location.path('/detail/' + id);
+    $scope.randomWorker = function() {
+      locator.randomWorker();
     }
 
     $scope.nextWorker = function() {
-      if (!isNumber($routeParams.workerId)) {
-        showTopWorker($location);
+      if (!locator.isIdSet()) {
+        locator.showTopWorker();
       } else {
         var currentId = parseInt($routeParams.workerId),
           workers = WorkersCache.get('workers');
 
         if ((currentId + 1) >= workers.length) {
-          showTopWorker($location);
+          locator.showTopWorker();
         } else {
-          showWorker($location, currentId + 1);
+          locator.showWorker(currentId + 1);
         }
       }
     }
 
-    $scope.previousWorker = function() {
-      if (!isNumber($routeParams.workerId)) {
-        showTopWorker($location);
+    $scope.prevWorker = function() {
+      if (!locator.isIdSet()) {
+        locator.showTopWorker();
       } else {
         var currentId = parseInt($routeParams.workerId),
           workers = WorkersCache.get('workers'),
           maxId = workers.length - 1;
 
         if ((currentId - 1) < 0) {
-          showWorker($location, maxId);
+          locator.showWorker(maxId);
         } else {
-          showWorker($location, currentId - 1);
+          locator.showWorker(currentId - 1);
         }
       }
     }
