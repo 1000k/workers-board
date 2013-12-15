@@ -59,6 +59,18 @@ angular.module('myApp.controllers', [])
       this.isTimerRunning_ = false;
     }
 
+    this.randomWorker = function() {
+      var workers = WorkersCache.get('workers'),
+        maxId = workers.length - 1,
+        id = Math.floor(Math.random() * maxId);
+
+      this.showWorker(id);
+    }
+
+    this.showWorker = function(id) {
+      $location.path('/detail/' + id);
+    }
+
     $scope.nextWorker = function() {
       if (!isNumber($routeParams.workerId)) {
         showTopWorker($location);
