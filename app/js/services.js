@@ -23,6 +23,11 @@ angular.module('myApp.services', [])
       showTopWorker: function() {
         this.showWorker(0);
       },
+      showLastWorker: function() {
+        var workers = WorkersCache.get('workers'),
+          maxId = workers.length - 1;
+        this.showWorker(maxId);
+      },
       randomWorker: function() {
         var workers = WorkersCache.get('workers'),
           id = Math.floor(Math.random() * workers.length);

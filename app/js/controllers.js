@@ -2,11 +2,6 @@
 
 /* Controllers */
 
-// function isNumber(x) {
-//   if (typeof(x) != 'number' && typeof(x) != 'string') return false;
-//   else return (x == parseFloat(x) && isFinite(x));
-// }
-
 angular.module('myApp.controllers', [])
   .controller('WorkersListAllCtrl', ['$scope', '$http', 'locator', 'WorkersCache', function($scope, $http, locator, WorkersCache) {
     locator.getWorkers().success(function(data) {
@@ -67,12 +62,10 @@ angular.module('myApp.controllers', [])
       if (!locator.isIdSet()) {
         locator.showTopWorker();
       } else {
-        var currentId = parseInt($routeParams.workerId),
-          workers = WorkersCache.get('workers'),
-          maxId = workers.length - 1;
+        var currentId = parseInt($routeParams.workerId);
 
         if ((currentId - 1) < 0) {
-          locator.showWorker(maxId);
+          locator.showLastWorker();
         } else {
           locator.showWorker(currentId - 1);
         }
