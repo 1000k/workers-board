@@ -2,16 +2,16 @@
 
 /* Controllers */
 
-function getWorkers(http) {
-  return http.get('workers/workers.json');
+function getWorkers($http) {
+  return $http.get('workers/workers.json');
 }
 
-function showWorker(location, id) {
-  location.path('/detail/' + id);
+function showWorker($location, id) {
+  $location.path('/detail/' + id);
 }
 
-function showTopWorker(location) {
-  showWorker(location, 0);
+function showTopWorker($location) {
+  showWorker($location, 0);
 }
 
 function isNumber(x) {
