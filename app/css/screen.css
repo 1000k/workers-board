@@ -67,14 +67,50 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 10, ../../resources/sass/screen.scss */
+/* line 5, ../../resources/sass/_animation.scss */
+.animation-reveal.ng-enter {
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  opacity: 0;
+}
+
+/* line 13, ../../resources/sass/_animation.scss */
+.animation-reveal.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+/* line 17, ../../resources/sass/_animation.scss */
+.animation-reveal.ng-leave {
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  opacity: 1;
+}
+
+/* line 24, ../../resources/sass/_animation.scss */
+.animation-reveal.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+/* line 12, ../../resources/sass/screen.scss */
 html, body {
   height: 100%;
   color: #fff;
-  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  font-family: Segoe,sans-serif;
 }
 
-/* line 16, ../../resources/sass/screen.scss */
+/* line 18, ../../resources/sass/screen.scss */
 .page-wrapper {
   height: 100%;
   width: 100%;
@@ -95,19 +131,19 @@ html, body {
   line-height: 1.5em;
 }
 
-/* line 31, ../../resources/sass/screen.scss */
+/* line 33, ../../resources/sass/screen.scss */
 .descriptions {
   flex: 1 61.8%;
   order: 2;
   padding: 20px;
   background-color: #3fbcbe;
 }
-/* line 38, ../../resources/sass/screen.scss */
+/* line 40, ../../resources/sass/screen.scss */
 .descriptions p {
   line-height: 1.25;
 }
 
-/* line 43, ../../resources/sass/screen.scss */
+/* line 45, ../../resources/sass/screen.scss */
 .worker-image {
   flex: 1 38.2%;
   order: 1;
@@ -117,23 +153,23 @@ html, body {
   background-repeat: no-repeat;
 }
 
-/* line 54, ../../resources/sass/screen.scss */
+/* line 56, ../../resources/sass/screen.scss */
 .worker-name {
   font-size: 4rem;
   margin-bottom: 0.75em;
 }
 
-/* line 59, ../../resources/sass/screen.scss */
+/* line 61, ../../resources/sass/screen.scss */
 .worker-description {
   font-size: 2rem;
 }
-/* line 62, ../../resources/sass/screen.scss */
+/* line 64, ../../resources/sass/screen.scss */
 .worker-description p {
   margin-bottom: 1.5em;
 }
 
-/* line 67, ../../resources/sass/screen.scss */
-.controlPanel {
+/* line 69, ../../resources/sass/screen.scss */
+.control-panel {
   position: fixed;
   background: #ccc;
   top: 0;

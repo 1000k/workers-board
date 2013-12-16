@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/screen.css"/>
 </head>
 <body>
-  <div class="controlPanel" ng-controller="ControlPanel as cp">
+  <div class="control-panel" ng-controller="ControlPanel as cp">
     <ul class="menu">
       <li><a href="#/detail">Random</a></li>
       <li><a href="#/list-all">List All Workers</a></li>
@@ -27,11 +27,12 @@
     </fieldset>
   </div>
 
-  <div ng-view class="page-wrapper"></div>
+  <div ng-view class="page-wrapper animation-reveal"></div>
 
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-route.js"></script>
   <script src="lib/angular/angular-resource.js"></script>
+  <script src="lib/angular/angular-animate.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>

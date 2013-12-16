@@ -1,0 +1,26 @@
+@import "compass/css3/transition";
+
+$delay: 0.5s;
+
+.animation-reveal.ng-enter {
+  // @include transition-delay($delay);
+  @include transition-duration($delay);
+  @include transition-timing-function(ease-out);
+
+  opacity: 0;
+}
+
+.animation-reveal.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.animation-reveal.ng-leave {
+  @include transition-duration($delay);
+  @include transition-timing-function(ease-out);
+
+  opacity: 1;
+}
+
+.animation-reveal.ng-leave.ng-leave-active {
+  opacity: 0;
+}

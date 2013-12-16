@@ -7,10 +7,12 @@
 @import "compass/css3";
 @import "compass/typography/vertical_rhythm";
 
+@import "_animation.scss";
+
 html, body {
   height: 100%;
   color: #fff;
-  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  font-family:Segoe,sans-serif;
 }
 
 .page-wrapper {
@@ -64,7 +66,7 @@ html, body {
   }
 }
 
-.controlPanel {
+.control-panel {
   position: fixed;
   background: #ccc;
   top: 0;
