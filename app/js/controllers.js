@@ -29,12 +29,13 @@ angular.module('myApp.controllers', [])
     this.timerSec = 2;
     this.promise_ = null;
 
-    this.timerStart = function() {
+    this.startTimer = function() {
       var msec = this.timerSec * 1000;
+      if (this.promise_ != null) this.stopTimer();
       this.promise_ = $interval(function() { locator.randomWorker(); }, msec);
     }
 
-    this.timerStop = function() {
+    this.stopTimer = function() {
       $interval.cancel(this.promise_);
     }
 
