@@ -26,22 +26,45 @@ angular.module('myApp.controllers', [])
     }
   }])
   .controller('ControlPanel', ['$scope', '$routeParams', '$interval', 'WorkersCache', 'locator', function($scope, $routeParams, $interval, WorkersCache, locator) {
-    $scope.templates = {
-      "progressbar": "partials/progressbar.html"
+    $scope.progress = {
+      value: 0,
+      max: 1000000
     };
 
-    this.timerSec = 2;
-    this.promise_ = null;
+    $scope.timerSec = 5;
+    $scope.restMs_ = 0;
+    $scope.limitMs_ = 0;
+    $scope.intervalMs_ = 50;
+    $scope.promise_ = null;
 
-    this.startTimer = function() {
-      var msec = this.timerSec * 1000;
-      if (this.promise_ != null) this.stopTimer();
-      this.promise_ = $interval(function() { locator.randomWorker(); }, msec);
-    }
+    $scope.startTimer = function() {
+      $scope.limitMs_ = $scope.restMs_ = $scope.timerSec * 1000;
 
-    this.stopTimer = function() {
-      $interval.cancel(this.promise_);
-    }
+      $scope.resetTimer_();
+      $scope.promise_ = $interval(function() {
+        $scope.restMs_ -= $scope.intervalMs_;
+
+        var restRate = ($scope.limitMs_ - $scope.restMs_) / $scope.limitMs_;
+        var restBarLength = $scope.progress.max * restRate;
+
+        $scope.progress.value = restBarLength;
+
+        if ($scope.progress.value > $scope.progress.max) {
+          $scope.resetTimer_();
+          $scope.randomWorker();
+          $scope.startTimer();
+        }
+      }, $scope.intervalMs_);
+    };
+
+    $scope.stopTimer = function() {
+      $scope.resetTimer_();
+    };
+
+    $scope.resetTimer_ = function() {
+      $scope.progress.value = 0;
+      $interval.cancel($scope.promise_);
+    };
 
     $scope.randomWorker = function() {
       locator.randomWorker();

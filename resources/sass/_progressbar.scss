@@ -1,7 +1,7 @@
 @import "compass/css3/appearance";
 
 $barColor: #8ff;
-$barBgColor: red;
+$barBgColor: transparent;
 
 .progress-wrapper {
   position: fixed;
@@ -15,11 +15,12 @@ $barBgColor: red;
 
     display: block;
     width: 100%;
-    height: 4px;
+    height: 2px;
 
-    color: $barColor;
-    background: $barBgColor;
+    color: $barColor;         /* IE */
+    background: $barBgColor;  /* Firefox */
 
+    /* Chrome */
     &::-webkit-progress-bar {
       background: $barBgColor;
     }
@@ -28,6 +29,7 @@ $barBgColor: red;
       background: $barColor;
     }
 
+    /* Firefox */
     &::-moz-progress-bar {
       background: $barColor;
     }

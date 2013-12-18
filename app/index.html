@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="control-panel" ng-controller="ControlPanel as cp">
-    <div ng-include src="templates.progressbar"></div>
+    <progress-bar></progress-bar>
 
     <ul class="menu">
       <li><a href="#/detail">Random</a></li>
@@ -23,9 +23,9 @@
     </ul>
 
     <fieldset>
-      <label for="timerSec">Timer (sec): </label><input type="number" ng-model="cp.timerSec" required>
-      <button ng-click="cp.startTimer()">start</button>
-      <button ng-click="cp.stopTimer()">stop</button>
+      <label for="timerSec">Timer (sec): </label><input type="number" ng-model="timerSec" required>
+      <button ng-click="startTimer()">start</button>
+      <button ng-click="stopTimer()">stop</button>
     </fieldset>
   </div>
 

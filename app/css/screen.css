@@ -117,19 +117,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border: 0;
   display: block;
   width: 100%;
-  height: 4px;
+  height: 2px;
   color: #88ffff;
-  background: red;
+  /* IE */
+  background: transparent;
+  /* Firefox */
+  /* Chrome */
+  /* Firefox */
 }
-/* line 23, ../../resources/sass/_progressbar.scss */
+/* line 24, ../../resources/sass/_progressbar.scss */
 .progress-wrapper progress::-webkit-progress-bar {
-  background: red;
+  background: transparent;
 }
-/* line 27, ../../resources/sass/_progressbar.scss */
+/* line 28, ../../resources/sass/_progressbar.scss */
 .progress-wrapper progress::-webkit-progress-value {
   background: #88ffff;
 }
-/* line 31, ../../resources/sass/_progressbar.scss */
+/* line 33, ../../resources/sass/_progressbar.scss */
 .progress-wrapper progress::-moz-progress-bar {
   background: #88ffff;
 }
