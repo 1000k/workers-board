@@ -26,6 +26,10 @@ angular.module('myApp.controllers', [])
     }
   }])
   .controller('ControlPanel', ['$scope', '$routeParams', '$interval', 'WorkersCache', 'locator', function($scope, $routeParams, $interval, WorkersCache, locator) {
+    $scope.templates = {
+      "progressbar": "partials/progressbar.html"
+    };
+
     this.timerSec = 2;
     this.promise_ = null;
 

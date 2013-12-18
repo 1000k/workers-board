@@ -103,14 +103,45 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   opacity: 0;
 }
 
-/* line 12, ../../resources/sass/screen.scss */
+/* line 6, ../../resources/sass/_progressbar.scss */
+.progress-wrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+/* line 12, ../../resources/sass/_progressbar.scss */
+.progress-wrapper progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  color: #88ffff;
+  background: red;
+}
+/* line 23, ../../resources/sass/_progressbar.scss */
+.progress-wrapper progress::-webkit-progress-bar {
+  background: red;
+}
+/* line 27, ../../resources/sass/_progressbar.scss */
+.progress-wrapper progress::-webkit-progress-value {
+  background: #88ffff;
+}
+/* line 31, ../../resources/sass/_progressbar.scss */
+.progress-wrapper progress::-moz-progress-bar {
+  background: #88ffff;
+}
+
+/* line 13, ../../resources/sass/screen.scss */
 html, body {
   height: 100%;
   color: #fff;
   font-family: Segoe,sans-serif;
 }
 
-/* line 18, ../../resources/sass/screen.scss */
+/* line 19, ../../resources/sass/screen.scss */
 .page-wrapper {
   height: 100%;
   width: 100%;
@@ -131,19 +162,19 @@ html, body {
   line-height: 1.5em;
 }
 
-/* line 33, ../../resources/sass/screen.scss */
+/* line 34, ../../resources/sass/screen.scss */
 .descriptions {
   flex: 1 61.8%;
   order: 2;
   padding: 20px;
   background-color: #3fbcbe;
 }
-/* line 40, ../../resources/sass/screen.scss */
+/* line 41, ../../resources/sass/screen.scss */
 .descriptions p {
   line-height: 1.25;
 }
 
-/* line 45, ../../resources/sass/screen.scss */
+/* line 46, ../../resources/sass/screen.scss */
 .worker-image {
   flex: 1 38.2%;
   order: 1;
@@ -153,22 +184,22 @@ html, body {
   background-repeat: no-repeat;
 }
 
-/* line 56, ../../resources/sass/screen.scss */
+/* line 57, ../../resources/sass/screen.scss */
 .worker-name {
   font-size: 4rem;
   margin-bottom: 0.75em;
 }
 
-/* line 61, ../../resources/sass/screen.scss */
+/* line 62, ../../resources/sass/screen.scss */
 .worker-description {
   font-size: 2rem;
 }
-/* line 64, ../../resources/sass/screen.scss */
+/* line 65, ../../resources/sass/screen.scss */
 .worker-description p {
   margin-bottom: 1.5em;
 }
 
-/* line 69, ../../resources/sass/screen.scss */
+/* line 70, ../../resources/sass/screen.scss */
 .control-panel {
   position: fixed;
   background: #ccc;
